@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/default.css">
+  <title>Register - Tokeng</title>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="logo">
+        <img src="assets/tokeng-logo.png" alt="Tokeng Logo">
+      </div>
+      <ul class="header-nav">
+        <li><a href="/">frontpage</a></li>
+        <li><a href="/about">about</a></li>
+        <li><a href="/register">register</a></li>
+      </ul>
+    </div>
+    <div class="pageheader">
+      <h1>Register to Tokeng</h1>
+    </div>
+    <div class="contents">
+      <div class="set intro">
+          <h1>Register</h1>
+          <p>Fill the form, and start using Tokeng.</p>
+          <form class="register-form" action="/register" method="POST">
+
+            <input type="hidden" id="challange" name="challange" value="">
+
+            <label for="r-name">Your Name :</label>
+            <input class="input-text" type="text" name="r-realname" id="r-realname" autocomplete="off">
+
+            <label for="r-pass">Password :</label>
+            <div style="margin-bottom: 1rem;">
+              <input class="input-text" type="password" name="r-pass" id="r-pass" autocomplete="off">
+              <button type="button" id="togglePassword" class="gray" style="font-size: 1rem">Show Password</button>
+            </div>
+          
+            <label for="r-email">Email :</label>
+            <input class="input-text" type="email" name="r-email" id="r-email" autocomplete="off">
+            
+            <label for="r-email">English Level :</label>
+            <select name="" id="">
+              <option value="beginner">Beginner</option>
+              <option value="a1">A1</option>
+              <option value="a2">A2</option>
+              <option value="b1">B1</option>
+              <option value="b2">B2</option>
+              <option value="c1">C1</option>
+              <option value="c2">C2</option>
+              <option value="native">Native</option>
+            </select>
+            
+            <button type="submit" name="register" id="register" style="margin-top: 1rem;" onclick="this.disabled=true; this.form.submit();">Register</button>
+
+            </div>
+          </form>
+        </div>
+    <div class="footer">
+      <ul class="footer-nav">
+        <li><a href="/about">about</a></li>
+        <li><a href="https://dorkodu.com">dorkodu</a></li>
+        <li><a href="https://dorkodu.com/jobs">jobs</a></li>
+        <li><a href="/terms">terms</a></li>
+      </ul>
+      <p>a Dorkodu masterpiece.</p>
+      <p>Tokeng &copy; 2021</p>
+    </div>
+  </div>
+
+  <script>
+    var togglePasswordButton = document.getElementById("togglePassword");
+    var passwordInput = document.getElementById("r-pass");
+    
+    togglePasswordButton.addEventListener("click", function () {
+
+      var type = passwordInput.getAttribute("type");
+
+      if(type == "password") {
+        passwordInput.setAttribute("type", "text");
+        togglePasswordButton.innerText = "Hide Password";
+      } else if (type == "text") {
+        passwordInput.setAttribute("type", "password");
+        togglePasswordButton.innerText = "Show Password";
+      }
+
+    })
+
+  </script>  
+</body>
+</html>
