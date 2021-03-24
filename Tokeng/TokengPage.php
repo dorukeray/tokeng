@@ -1,9 +1,10 @@
 <?php
   namespace Tokeng;
-  
+
   class TokengPage
   {
-    private string $template = `<!DOCTYPE html>
+    private string $template = '
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -39,9 +40,10 @@
     </div>
   </div>
 </body>
-</html>`;
+</html>';
 
     private UIComponent $component;
+
     /**
      * Class constructor.
      */
@@ -50,6 +52,7 @@
       $dataArray = [
         'title' => $title,
         'page-title' => $pageTitle,
+        'header-nav' => $this->renderHeaderLinks($isLoggedIn),
         'contents' => $contents
       ];
 
@@ -71,7 +74,9 @@
     }
 
     public function render() {
-      
+      ob_start();
+      echo $this->component->render();
+      ob_end_flush();
     }
   }
   
