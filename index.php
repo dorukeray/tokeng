@@ -1,22 +1,27 @@
 <?php
   require_once "bootstrap.php";
 
-  use Tokeng\Route;
+  use Dorkodu\SuperPage\SuperPage;
   use Tokeng\TokengPage;
 
   # routes
 
+  $superpage = new SuperPage();
+
   # frontpage and aliases
-  Route::to("/", "get", $FrontpageController);
-  Route::to("/index.php", "get", $FrontpageController);
-  Route::to("/index", "get", $FrontpageController);
-  Route::to("/frontpage", "get", $FrontpageController);
+  $superpage->to("/", "get", $FrontpageController);
+  $superpage->to("/index.php", "get", $FrontpageController);
+  $superpage->to("/index", "get", $FrontpageController);
+  $superpage->to("/frontpage", "get", $FrontpageController);
   
   # std pages
-  Route::to("/oops", "get", $ErrorPageController);
-  Route::to("/terms", "get", $ErrorPageController);
-  Route::to("/about", "get", $AboutPageController);
+  $superpage->to("/terms", "get", $ErrorPageController);
+  $superpage->to("/about", "get", $AboutPageController);
 
-  Route::to("/register", "get", $RegisterPageController);
-  Route::to("/login", "post", $LoginPageController);
-  Route::to("/logout", "post", $LogoutPageController);
+  $superpage->to("/register", "get", $RegisterPageController);
+  $superpage->to("/login", "post", $LoginPageController);
+  $superpage->to("/logout", "post", $LogoutPageController);
+
+  $superpage->to("/oops", "get", $ErrorPageController);
+
+  $superpage->run();

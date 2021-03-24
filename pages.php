@@ -88,3 +88,46 @@
       false);
     $aboutPage->render();
   };
+
+  $RegisterPageController = function ($payload) {
+    $page = new TokengPage(
+      "Register - Tokeng",
+      "Register to Tokeng", 
+      <<<HTML
+      <div class="set intro">
+        <h1>Register</h1>
+        <p>Fill the form, and start using Tokeng.</p>
+        <form class="register-form" action="/register" method="POST">
+          <input type="hidden" id="challange" name="challange" value="">
+
+          <label for="r-name">Your Name :</label>
+          <input class="input-text" type="text" name="r-realname" id="r-realname" autocomplete="off">
+
+          <label for="r-pass">Password :</label>
+          <div style="margin-bottom: 1rem;">
+            <input class="input-text" type="password" name="r-pass" id="r-pass" autocomplete="off">
+            <button type="button" id="togglePassword" class="gray" style="font-size: 1rem">Show Password</button>
+          </div>
+        
+          <label for="r-email">Email :</label>
+          <input class="input-text" type="email" name="r-email" id="r-email" autocomplete="off">
+          
+          <label for="r-email">English Level :</label>
+          <select name="" id="">
+            <option value="beginner">Beginner</option>
+            <option value="a1">A1</option>
+            <option value="a2">A2</option>
+            <option value="b1">B1</option>
+            <option value="b2">B2</option>
+            <option value="c1">C1</option>
+            <option value="c2">C2</option>
+            <option value="native">Native</option>
+          </select>
+          
+          <button type="submit" name="register" id="register" style="margin-top: 1rem;" onclick="this.disabled=true; this.form.submit();">Register</button>
+          </form>
+        </div>
+      HTML, 
+      false);
+    $page->render();
+  };
