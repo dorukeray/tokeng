@@ -1,4 +1,11 @@
 <?php
-  require_once "loot/loom-weaver.php";
+  require_once "bootstrap.php";
 
-  echo $_SERVER['REQUEST_URI'];
+  use Tokeng\Route;
+  use Tokeng\TokengPage;
+
+  $frontpage = function($payload) {
+
+  };
+
+  Route::to("/", "get", $frontpage);
