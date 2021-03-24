@@ -4,8 +4,6 @@
   use Tokeng\Route;
   use Tokeng\TokengPage;
 
-  $frontpage = function($payload) {
+  
 
-  };
-
-  Route::to("/", "get", $frontpage);
+  Route::to("/", "get", );
