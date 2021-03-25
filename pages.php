@@ -2,9 +2,9 @@
 
   use Tokeng\TokengPage;
 
-  # pages
+  # PAGES
 
-  $FrontpageController = function ($payload) {
+  $FrontpageController = function () {
       
     $challange = "some hash";
 
@@ -45,7 +45,7 @@
     $frontpage->render();
   };
 
-  $ErrorPageController = function ($payload) {
+  $ErrorPageController = function () {
     $errorpage = new TokengPage(
       "Oops! - Tokeng",
       "Oops!", 
@@ -59,7 +59,7 @@
     $errorpage->render();
   };
 
-  $AboutPageController = function ($payload) {
+  $AboutPageController = function () {
     $aboutPage = new TokengPage(
       "About - Tokeng",
       "About Tokeng", 
@@ -89,7 +89,7 @@
     $aboutPage->render();
   };
 
-  $RegisterPageController = function ($payload) {
+  $RegisterPageController = function () {
     $page = new TokengPage(
       "Register - Tokeng",
       "Register to Tokeng", 
@@ -130,4 +130,9 @@
       HTML, 
       false);
     $page->render();
+  };
+
+  $ProfilePageController = function ($id) {
+    echo "Given User ID :";
+    print_r($id);
   };

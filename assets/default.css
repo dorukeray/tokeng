@@ -274,7 +274,6 @@ ul.list {
   float: right;
   width: 35%;
   border: .125rem solid var(--dorkodu-smokegray-light);
-  background-color: var(--dorkodu-smokegray-sky);
 }
 
 .login-box button {

@@ -14,7 +14,6 @@
   class SuperPage
   {
     private $routes = array();
-    private $context = array();
 
     public $root;
     private $requestMethod;
@@ -106,7 +105,10 @@
 
       # loop all routes
       foreach ($routes as $route) {
-        # replace all curly braces matches {} into word patterns (like Laravel)
+        /**
+         * TODO:  
+         */
+        # replace all curly braces matches {} into word patterns
         $route['pattern'] = preg_replace('/\/{(.*?)}/', '/(.*?)', $route['pattern']);
 
         # we have a match!
@@ -115,7 +117,7 @@
           $matches = array_slice($matches, 1);
 
           # extract the matched URL parameters (and only THE parameters)
-          $urlParams = array_map(function ($match, $index) use ($matches) {
+          $params = array_map(function ($match, $index) use ($matches) {
 
             # we have a following parameter : 
             # take the substring from the current param position until the next one's position (thank you PREG_OFFSET_CAPTURE)
@@ -128,7 +130,6 @@
             return isset($match[0][0]) && $match[0][1] != -1 ? trim($match[0][0], '/') : null;
           }, $matches, array_keys($matches));
 
-          $params = array($this->context, $urlParams);
           # call the handling function with the URL parameters if the desired input is callable
           $this->invoke($route['callback'], $params);
 
@@ -254,11 +255,11 @@
     public function getBasePath()
     {
       # Check if server base path is defined, if not define it.
-      if ($this->serverBasePath === null) {
-        $this->serverBasePath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
+      if ($this->root === null) {
+        $this->root = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
       }
 
-      return $this->serverBasePath;
+      return $this->root;
     }
 
     /**
@@ -267,8 +268,8 @@
      *
      * @param string
      */
-    public function setBasePath($serverBasePath)
+    public function setBasePath($root)
     {
-        $this->serverBasePath = $serverBasePath;
+        $this->root = $root;
     }
   }

@@ -13,7 +13,7 @@
   $superpage->to("/index", "GET", $FrontpageController);
   $superpage->to("/frontpage", "GET", $FrontpageController);
   
-  # std pages
+  # other pages
   $superpage->to("/terms", "GET", $ErrorPageController);
   $superpage->to("/about", "GET", $AboutPageController);
 
@@ -21,8 +21,11 @@
   $superpage->to("/login", "POST", $LoginPageController);
   $superpage->to("/logout", "POST", $LogoutPageController);
 
-  $superpage->to("/oops", "GET", $ErrorPageController);
+  $superpage->to("/user/{id}", "GET", $ProfilePageController);
 
+  # not found
+  $superpage->to("/oops", "GET", $ErrorPageController);
   $superpage->fallback($ErrorPageController);
 
+  # run it!
   $superpage->run();

@@ -3,20 +3,21 @@
 
   class TokengPage
   {
-    private string $template = '
+    private string $template = <<<HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/default.css">
+  <link rel="stylesheet" href="/assets/default.css">
+  <link rel="shortcut icon" href="/assets/favicon.png">
   <title>{{ title }}</title>
 </head>
 <body>
   <div class="page">
     <div class="header">
       <div class="logo">
-        <img src="assets/tokeng-logo.png" alt="Tokeng Logo">
+        <img src="/assets/tokeng-logo.png" alt="Tokeng Logo">
       </div>
       <ul class="header-nav">
         {{ header-nav }}
@@ -40,7 +41,8 @@
     </div>
   </div>
 </body>
-</html>';
+</html>
+HTML;
 
     private UIComponent $component;
 
