@@ -1,5 +1,5 @@
 <?php
-  error_reporting(0);
+  error_reporting(E_ALL);
 	setlocale(LC_TIME, 'tr_TR');
 
   require_once "loot/loom-weaver.php";

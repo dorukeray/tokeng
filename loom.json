@@ -2,7 +2,8 @@
     "knotted": {
         "classmap": [],
         "namespaces": {
-            "Tokeng": "Tokeng"
+            "Tokeng": "source/Tokeng",
+            "Dorkodu": "source/Dorkodu"
         }
     }
 }
