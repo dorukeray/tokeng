@@ -9,13 +9,12 @@
     protected $hashedPassword;
     protected $bio;
     protected $englishLevel;
-    protected $socialHandle;
     protected $website;
 
     /**
      * Class constructor.
      */
-    public function __construct(int $id, string $name, string $email, string $hashedPassword, string $bio, string $englishLevel, string $socialHandle, string $website)
+    public function __construct(int $id, string $name, string $email, string $hashedPassword, string $bio, string $englishLevel, string $website)
     {
       $this->id = $id;  
       $this->name = $name;  
@@ -23,7 +22,6 @@
       $this->hashedPassword = $hashedPassword;  
       $this->bio = $bio;
       $this->englishLevel = $englishLevel;  
-      $this->socialHandle = $socialHandle;  
       $this->website = $website;  
     }
 
@@ -58,10 +56,6 @@
 
     public function getWebsite() {
       return $this->website;
-    }
-
-    public function getSocialHandle() {
-      return $this->socialHandle;
-    }  
+    } 
   }
   
