@@ -3,7 +3,7 @@
         "classmap": [],
         "namespaces": {
             "Tokeng": "source/Tokeng",
-            "Dorkodu": "source/Dorkodu"
+            "Dorkodu": "loot/Dorkodu"
         }
     }
 }

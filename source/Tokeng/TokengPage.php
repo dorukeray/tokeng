@@ -39,6 +39,8 @@
       <p>a Dorkodu masterpiece.</p>
       <p>Tokeng &copy; 2021</p>
     </div>
+    <br/>
+    <br/>
   </div>
 </body>
 </html>
@@ -64,14 +66,19 @@ HTML;
     private function renderHeaderLinks(bool $isLoggedIn)
     {
       if ($isLoggedIn) {
-        return '<li><a href="/home">home</a></li>
+        return <<<HTML
+                <li><a href="/home">home</a></li>
                 <li><a href="/me">my profile</a></li>
                 <li><a href="/random-match">random</a></li>
-                <li><a href="/logout">logout</a></li>';
+                <li><a href="/logout">logout</a></li>
+                HTML;
       } else {
-        return '<li><a href="/">frontpage</a></li>
+        return <<<HTML
+                <li><a href="/">frontpage</a></li>
                 <li><a href="/about">about</a></li>
-                <li><a href="/register">register</a></li>';
+                <li><a href="/register">register</a></li>
+                <li><a href="/terms">terms</a></li>
+                HTML;
       }
     }
 

@@ -8,23 +8,24 @@
   $superpage = new SuperPage();
 
   # frontpage and aliases
-  $superpage->to("/", "GET", $FrontpageController);
-  $superpage->to("/index.php", "GET", $FrontpageController);
-  $superpage->to("/index", "GET", $FrontpageController);
-  $superpage->to("/frontpage", "GET", $FrontpageController);
+  $superpage->get("/", $FrontpageController);
+  $superpage->get("/index.php", $FrontpageController);
+  $superpage->get("/index.html", $FrontpageController);
+  $superpage->get("/index", $FrontpageController);
+  $superpage->get("/frontpage", $FrontpageController);
   
   # other pages
-  $superpage->to("/terms", "GET", $ErrorPageController);
-  $superpage->to("/about", "GET", $AboutPageController);
+  $superpage->get("/terms", $TermsPageController);
+  $superpage->get("/about", $AboutPageController);
 
-  $superpage->to("/register", "GET", $RegisterPageController);
-  $superpage->to("/login", "POST", $LoginPageController);
-  $superpage->to("/logout", "POST", $LogoutPageController);
+  $superpage->get("/register", $RegisterPageController);
+  $superpage->get("/login", $LoginPageController);
+  $superpage->get("/logout", $LogoutPageController);
 
-  $superpage->to("/user/{id}", "GET", $ProfilePageController);
+  $superpage->get("/user/{id}", $ProfilePageController);
 
   # not found
-  $superpage->to("/oops", "GET", $ErrorPageController);
+  $superpage->get("/oops", $ErrorPageController);
   $superpage->fallback($ErrorPageController);
 
   # run it!
