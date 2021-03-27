@@ -6,7 +6,7 @@
 
   require_once "loom/Psr4Autoloader.php";
 
-  $universalNamespaces = array('Tokeng' => 'source/Tokeng', 'Dorkodu' => 'source/Dorkodu');
+  $universalNamespaces = array('Tokeng' => 'source/Tokeng', 'Dorkodu' => 'loot/Dorkodu');
   $psr4Autoloader = new Psr4Autoloader();
   $psr4Autoloader->register();
 
