@@ -3,6 +3,8 @@
 
   use Dorkodu\SuperPage\SuperPage;
 
+  session_start();
+
   # ROUTES
 
   $superpage = new SuperPage();
